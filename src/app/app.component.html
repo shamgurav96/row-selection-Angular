@@ -1,5 +1,58 @@
 <h1>Simple User's Data Table</h1>
-<table border="2">
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th (click)="selectedColumn(1)" > Column 1 </th>
+      <th (click)="selectedColumn(2)" > Column 2 </th>
+      <th (click)="selectedColumn(3)" > Column 3 </th>
+      <th (click)="selectedColumn(4)" > Column 4 </th>
+      <th (click)="selectedColumn(5)" > Column 5 </th>
+      <th (click)="selectedColumn(6)" > Column 6 </th>
+      <th (click)="selectedColumn(7)" > Column 7 </th>
+      <th (click)="selectedColumn(8)" > Column 8 </th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of data ; let index = 'index+1'">
+    <tr>
+      <td rowspan="6" class="frame" (click)="selectedFrame(item , index)"
+        [ngClass]="{'selected': item.isSelected === true}">
+        <span>Frame {{item.frame}} </span>
+      </td>
+    </tr>
+    <tr *ngFor="let subItem of item.rowData ;let subIndex = 'index+1'">
+
+      <th class="rowNames" (click)="selectedRow(item , subItem , subIndex)" [ngClass]="{'selected': isRowSelected(item.frame ,subItem.isRowSelected , subIndex)}">
+        {{subItem.variableName}}</th>
+
+      <td (click)="selectedCell(item , subItem , subIndex , 1 )" [ngClass]="{'selected': isCellSelected(item , subItem ,subIndex , 1)}" >{{subItem.column1}}</td>
+      <td (click)="selectedCell(item , subItem , subIndex , 2 )" [ngClass]="{'selected': isCellSelected(item , subItem ,subIndex , 2)}" >{{subItem.column2}}</td>
+      <td (click)="selectedCell(item , subItem , subIndex , 3 )" [ngClass]="{'selected': isCellSelected(item , subItem ,subIndex , 3)}" >{{subItem.column3}}</td>
+      <td (click)="selectedCell(item , subItem , subIndex , 4 )" [ngClass]="{'selected': isCellSelected(item , subItem ,subIndex , 4)}" >{{subItem.column4}}</td>
+      <td (click)="selectedCell(item , subItem , subIndex , 5 )" [ngClass]="{'selected': isCellSelected(item , subItem ,subIndex , 5)}" >{{subItem.column5}}</td>
+      <td (click)="selectedCell(item , subItem , subIndex , 6 )" [ngClass]="{'selected': isCellSelected(item , subItem ,subIndex , 6)}" >{{subItem.column6}}</td>
+      <td (click)="selectedCell(item , subItem , subIndex , 7 )" [ngClass]="{'selected': isCellSelected(item , subItem ,subIndex , 7)}" >{{subItem.column7}}</td>
+      <td (click)="selectedCell(item , subItem , subIndex , 8 )" [ngClass]="{'selected': isCellSelected(item , subItem ,subIndex , 8)}" >{{subItem.column8}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <table border="2">
   <thead>
     <td> <b>Name</b></td>
     <td><b>Gender</b></td>
@@ -18,4 +71,4 @@
       <td>{{ item.nationality }}</td>
     </tr>
   </tbody>
-  </table>
+</table> -->

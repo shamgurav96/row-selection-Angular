@@ -1,7 +1,42 @@
-tr:hover {
-    background: lightgrey;
+// tr:hover {
+//     background: lightgrey;
+// }
+
+// .selectedRow {
+//     background: yellow !important;
+// }
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    width: 100%;
+    min-width: 400px;
 }
 
-.selectedRow {
-    background: yellow !important;
+.content-table thead {
+    // background-color: rgb(20, 135, 55);
+    color: rgb(0, 0, 0);
+    // text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.frame {
+    cursor: pointer;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    text-align: center;
+    /* width: 40px; */
+    height: 20%;
+}
+
+.rowNames {
+    cursor: pointer;
+}
+
+.selected {
+    background-color: yellowgreen;
 }
