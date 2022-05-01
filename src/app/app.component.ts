@@ -194,6 +194,7 @@ export class AppComponent {
     item.rowData.forEach((element) => {
       element.isRowSelected = !element.isRowSelected;
     });
+    this.resetCellStoredObject();
   }
 
   selectedRow(item, subItem, rowNumber) {
@@ -205,6 +206,8 @@ export class AppComponent {
     subItem.isRowSelected = !subItem.isRowSelected;
     this.selectedTableColumn = 0 ;
     this.selectedCellColumnIndex = 0 ;
+
+    this.resetCellStoredObject();
   }
 
   isRowSelected(frameNumber, isRowSelected, rowNumber) {
@@ -238,8 +241,10 @@ export class AppComponent {
   
   selectedColumn(columnNumber){
     this.removeSelection();
+    this.resetCellStoredObject();
     this.selectedCellColumnIndex = columnNumber;
     this.selectedTableColumn = columnNumber;
+
   }
 
   isCellSelected(item, subItem ,rowNumber, colNumber) {
@@ -249,10 +254,14 @@ export class AppComponent {
    
   }
 
-  reset() {
-    this.selectedFrameIndex = 0;
-    this.selectedCellRowIndex = 0;
-    this.selectedCellColumnIndex = 0;
+  resetCellStoredObject() {
+
+    this.selectedCellsStorage.frameIndex = 0 ;
+    this.selectedCellsStorage.columnIndex = 0 ;
+    this.selectedCellsStorage.rowIndex = [] ;
+    // this.selectedFrameIndex = 0;
+    // this.selectedCellRowIndex = 0;
+    // this.selectedCellColumnIndex = 0;
   }
 
   removeSelection() {
@@ -263,6 +272,9 @@ export class AppComponent {
       });
     });
   }
+
+
+
 
   /*  rowClicked: any;
   clickedRowData = [];
