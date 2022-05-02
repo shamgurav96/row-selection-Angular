@@ -243,8 +243,7 @@ export class AppComponent {
     this.removeSelection();
     this.resetCellStoredObject();
     this.selectedCellColumnIndex = columnNumber;
-    this.selectedTableColumn = columnNumber;
-
+    this.selectedTableColumn = (this.selectedTableColumn == columnNumber) ? 0 : columnNumber ;
   }
 
   isCellSelected(item, subItem ,rowNumber, colNumber) {
@@ -259,9 +258,7 @@ export class AppComponent {
     this.selectedCellsStorage.frameIndex = 0 ;
     this.selectedCellsStorage.columnIndex = 0 ;
     this.selectedCellsStorage.rowIndex = [] ;
-    // this.selectedFrameIndex = 0;
-    // this.selectedCellRowIndex = 0;
-    // this.selectedCellColumnIndex = 0;
+
   }
 
   removeSelection() {
